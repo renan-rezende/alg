@@ -1,7 +1,7 @@
-matriz = [[1,1,2,9],
-           [2,4,-3,1],
-           [3,6,-5,0]
-           ]
+matriz = [ [1,1,2,9],  #         [ [ 3 , 6 , -5, 0 ],
+           [2,4,-3,1], # ----->    [ 2 , 4 , -3,-1 ],
+           [3,6,-5,0]  #           [ 1 , 1 , 2 , 9 ]
+         ]             #         ]
 
 def metodo_gaus(matriz):
        
@@ -24,11 +24,17 @@ def metodo_gaus(matriz):
 
        print(matriz)
 
-
+       
 #  =========  Fazendo as operações nas linhas utilizando o pivo. ========= #
 
 
-       return 
+       for i in range(len(matriz)):
+            for j in range(len(matriz) - 1 ):
+                  for k in range(len(matriz[0])):
+                      m = matriz[j+1+i][i]/matriz[i][i]
+                      matriz[j+1+i][k] =- m 
+                
+       return matriz
 
 
 metodo_gaus(matriz)
