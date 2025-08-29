@@ -1,7 +1,20 @@
-matriz = [ [1,1,2,9],  #         [ [ 3 , 6 , -5, 0 ],
-           [2,4,-3,1], # ----->    [ 2 , 4 , -3,-1 ],
-           [3,6,-5,0]  #           [ 1 , 1 , 2 , 9 ]
-         ]             #         ]
+matriz3x3 = [               #  [       
+              [1,1,2,9],    #     [ 3 , 6 , -5, 0 ],
+              [2,4,-3,1],   #     [ 2 , 4 , -3,-1 ],
+              [3,6,-5,0]    #     [ 1 , 1 , 2 , 9 ]
+            ]               #   ]       
+matriz10x10 = [
+                [ 2 ,  3 , -1 ,  4 ,  1 , -2 ,  1 ,  5 , -3 ,  1 ],
+                [ 1 , -4 ,  2 ,  3 , -1 ,  1 ,  2 , -1 ,  4 , -2 ],
+                [ 3 ,  1 ,  1 , -2 ,  5 ,  1 , -3 ,  2 , -1 ,  4 ],
+                [ 4 , -1 ,  3 ,  2 , -1 ,  2 ,  1 , -3 ,  5 , -1 ],
+                [ 1 ,  2 , -3 ,  1 ,  4 , -1 ,  2 , -1 ,  3 ,  2 ],
+                [ 2 , -1 ,  4 , -2 ,  3 ,  1 , -5 ,  2 ,  1 , -4 ],
+                [ 1 ,  3 ,  2 , -1 , -2 ,  4 ,  1 , -3 ,  2 ,  1 ],
+                [ 5 , -2 ,  1 ,  3 ,  1 , -1 ,  2 ,  4 , -2 ,  3 ],
+                [ 3 ,  1 , -2 ,  4 ,  1 ,  2 , -1 , -1 ,  5 , -3 ],
+                [ 2 ,  4 ,  1 , -1 ,  3 , -2 ,  1 ,  2 , -1 ,  1 ]
+              ]
 
 def metodo_gaus(matriz):
        
@@ -23,21 +36,20 @@ def metodo_gaus(matriz):
        matriz[indicie] = matriz_aux
 
        print(matriz)
-
        
 #  =========  Fazendo as operações nas linhas utilizando o pivo. ========= #
 
-
        for i in range(len(matriz)):
-            for j in range(len(matriz) - 1 ):
+            for j in range(len(matriz) - (i+1) ):
                   for k in range(len(matriz[0])):
                       m = matriz[j+1+i][i]/matriz[i][i]
-                      matriz[j+1+i][k] =- m 
-                
-       return matriz
+                      matriz[j+1+i][k] -= m * matriz[i][k]
+
+       return print(matriz)
 
 
-metodo_gaus(matriz)
+metodo_gaus(matriz10x10)
+
 
 
 
